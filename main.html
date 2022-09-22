@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Portal</title>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- using materialize-css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body style="background-color: rgb(221, 219, 212)">
+    <nav>
+      <div class="nav-wrapper #ffc400 amber accent-3">
+        <a href="#" class="brand-logo">Login Portal</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="#modal2" class="modal-trigger">Login</a></li>
+          <li><a href="#modal1" class="modal-trigger">Sign-up</a></li>
+          <li><a onclick="logout()">Log-out</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h4 style="color: rgb(24, 18, 78); border-color: black">
+      Please Sign-up to experience our services
+    </h4>
+    <!-- Sign-up-Modal-->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Sign-up</h4>
+        <form autocomplete="off" onsubmit="signup(event)">
+          <input type="email" placeholder="email" id="signupEmail" />
+          <input type="password" placeholder="password" id="signupPassword" />
+          <button class="btn waves-effect #ffc400 amber accent-3" type="submit">
+            Submit
+          </button>
+        </form>
+        <br />
+        <button onclick="loginWithGoogle()" class="btn waves-effect green">
+          Sign-up with Google
+        </button>
+      </div>
+    </div>
+    <!-- Login-Modal-->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4>
+        <form autocomplete="off" onsubmit="login(event)">
+          <input type="email" placeholder="email" id="loginEmail" />
+          <input type="password" placeholder="password" id="loginPassword" />
+          <button class="btn waves-effect #ffc400 amber accent-3" type="submit">
+            Submit
+          </button>
+        </form>
+        <br />
+        <button onclick="loginWithGoogle()" class="btn waves-effect green">
+          Login with Google
+        </button>
+      </div>
+    </div>
+    <!-- using materialize-js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".modal");
+        var instances = M.Modal.init(elems);
+      });
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyByk2M3YwJC7zeXRo6rxC9UMEqXvDP3Hv4",
+        authDomain: "job-portal-fahd.firebaseapp.com",
+        projectId: "job-portal-fahd",
+        storageBucket: "job-portal-fahd.appspot.com",
+        messagingSenderId: "191225425072",
+        appId: "1:191225425072:web:4529f301d8b0fc2b399f75",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./scripts/auth.js"></script>
+  </body>
+</html>
